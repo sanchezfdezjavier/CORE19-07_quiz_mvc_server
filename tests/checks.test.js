@@ -113,7 +113,7 @@ describe("CORE19-07_quiz_mvc_server", function () {
             this.msg_err = error_critical;
             should.not.exist(error_critical);
         } else {
-            const expected = "Question 1";
+            const expected = /Question 1/img;
             [error_nav, resp] = await to(browser.visit(URL));
             if (error_nav) {
                 this.msg_err = `Couldn't find '${expected}' in ${URL}\n\t\t\tError: >>${error_nav}<<\n\t\t\tReceived: >>${browser.html('body')}<<`;
